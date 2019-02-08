@@ -1,0 +1,19 @@
+package pack;
+
+import java.io.IOException;
+import javax.swing.JOptionPane;
+
+public class Main {
+	public static void main(String[] args){
+		String tempo = JOptionPane.showInputDialog(null,"Insira o tempo para desligar em minutos:","Boa Noite", 
+				JOptionPane.CLOSED_OPTION);
+		int t = (Integer.parseInt(tempo)*60);
+		try {
+			Runtime.getRuntime().exec("shutdown -a ");
+			Runtime.getRuntime().exec("shutdown -s -t "+t);
+			System.out.println("ok");
+		} catch (IOException e) {
+			e.printStackTrace();
+		}		
+	}
+}
